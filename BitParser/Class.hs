@@ -7,8 +7,8 @@ import Data.Word
 import Data.Int
 
 class BitParsable a where
-    bget :: BitParser a
-    bgets :: Int -> BitParser a
+    bget :: Monad m => BitParserT m a
+    bgets :: Monad m => Int64 -> BitParserT m a
 
 
 instance BitParsable Bool where
